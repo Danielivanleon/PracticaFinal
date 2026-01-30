@@ -36,11 +36,16 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-    ],
+ 'web' => [
+ 'driver' => 'session',
+ 'provider' => 'users',
+ ],
+ 'api' => [
+ 'driver' => 'keycloak', // usa el guard de Keycloak
+ 'provider' => 'users',
+ ],
+ ],
+
 
     /*
     |--------------------------------------------------------------------------
