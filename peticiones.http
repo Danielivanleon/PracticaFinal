@@ -1,3 +1,2 @@
-https://sturdy-fiesta-976vq4wwrx37pqx-8000.app.github.dev/api/ponentes
-use App\Http\Controllers\PonenteVistaController;
-Route::get('/ponentes-vista',[PonenteVistaController::class,'index'])->name('ponentes.vista');
+
+curl -X POST http://localhost:8000/api/ponentes-vista
