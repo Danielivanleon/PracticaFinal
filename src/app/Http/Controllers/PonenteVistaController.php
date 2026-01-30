@@ -2,7 +2,8 @@
 
 
 namespace App\Http\Controllers;
-
+ 
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 use App\Models\Ponente;
@@ -15,7 +16,19 @@ class PonenteVistaController extends Controller
         return view('ponentes.vista',compact('ponentes'));
     }
 
-    use Illuminate\Support\Facades\Validator;
+  public function destroy($id){
+        $ponente=Ponente::find($id);
+
+
+        if($ponente){
+            $ponente->delete();
+            return redirect()->route('ponentes.vista')->with('success','Ponente eliminado correctamente');
+        }
+
+
+        return redirect()->route('ponentes.vista')->with('error','Ponente no encontrado');
+    }
+
  
 public function store(Request $request){
         $validator =Validator::make($request->all(),[
